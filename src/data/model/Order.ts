@@ -1,11 +1,11 @@
 export type Items = {
-    productId: string,
+    productId: number,
     productQuantity: number
 }
 
 
 export type Order = {
-    id: number,
+    id: string,
     clientName: string,
     dueDate: Date,
     list: Items[]

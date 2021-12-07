@@ -23,7 +23,7 @@ export class Migrations extends BaseDataBase {
 
             await BaseDataBase.connection.raw(`
                 CREATE TABLE IF NOT EXISTS ${ORDERS_LIST} (
-                id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                id VARCHAR(255) NOT NULL PRIMARY KEY,
                 clientName VARCHAR(50) NOT NULL,
                 dueDate DATE NOT NULL
             );         
@@ -32,7 +32,7 @@ export class Migrations extends BaseDataBase {
             await BaseDataBase.connection.raw(`
                 CREATE TABLE IF NOT EXISTS ${ORDERS_PRODUCTS}(
                 productId INT NOT NULL,
-                orderId INT NOT NULL,
+                orderId VARCHAR(255) NOT NULL,
                 productQuantity INT NOT NULL,
                 FOREIGN KEY (productId) REFERENCES ${PRODUCTS_LIST}(id),
                 FOREIGN KEY (orderId) REFERENCES ${ORDERS_LIST}(id)
@@ -50,4 +50,4 @@ export class Migrations extends BaseDataBase {
     }
 }
 
-Migrations.createTables()
+// Migrations.createTables()

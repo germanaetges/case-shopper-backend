@@ -1,12 +1,14 @@
 import express from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
+import { productsRouter } from "./routes/ProductsRouter";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
+app.use("/shopper", productsRouter);
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
