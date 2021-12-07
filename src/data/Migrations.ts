@@ -1,8 +1,10 @@
 import BaseDataBase from "./BaseDataBase"
 import products from "./products.json"
-import { IdGenerator } from "./services/idGenerator"
+
 
 export const PRODUCTS_LIST = "products_shopper";
+export const ORDERS_LIST = "orders_shopper"
+export const ORDERS_PRODUCTS = "orders_products_shopper"
 
 
 export class Migrations extends BaseDataBase {
@@ -11,24 +13,33 @@ export class Migrations extends BaseDataBase {
 
         try {
             await BaseDataBase.connection.raw(`
-      CREATE TABLE IF NOT EXISTS ${PRODUCTS_LIST} (
-        id VARCHAR(255) PRIMARY KEY,
-        name VARCHAR(255) UNIQUE NOT NULL,
-        price FLOAT NOT NULL,
-        qty_stock INT NOT NULL
-      );
-   `)
+                CREATE TABLE IF NOT EXISTS ${PRODUCTS_LIST} (
+                id INT PRIMARY KEY,
+                name VARCHAR(255) UNIQUE NOT NULL,
+                price FLOAT NOT NULL,
+                qty_stock INT NOT NULL
+            );
+         `)
 
-            const productsInsert = products.map((product) => {
-                return {
-                 id: product.id,
-                 name: product.name,
-                 price: product.price,
-                 qty_stock: product.qty_stock
-                }
-            })
+            await BaseDataBase.connection.raw(`
+                CREATE TABLE IF NOT EXISTS ${ORDERS_LIST} (
+                id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                clientName VARCHAR(50) NOT NULL,
+                dueDate DATE NOT NULL
+            );         
+        `)
 
-            await Migrations.connection(PRODUCTS_LIST).insert(productsInsert)
+            await BaseDataBase.connection.raw(`
+                CREATE TABLE IF NOT EXISTS ${ORDERS_PRODUCTS}(
+                productId INT NOT NULL,
+                orderId INT NOT NULL,
+                productQuantity INT NOT NULL,
+                FOREIGN KEY (productId) REFERENCES ${PRODUCTS_LIST}(id),
+                FOREIGN KEY (orderId) REFERENCES ${ORDERS_LIST}(id)
+          );
+        `)
+
+            await Migrations.connection(PRODUCTS_LIST).insert(products)
 
             console.log("Tabela criada!")
         } catch (error: any) {
