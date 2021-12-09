@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
+import { OrdersBusiness } from "../business/OrdersBusiness";
 import BaseDataBase from "../data/BaseDataBase";
 import { OrderInputDTO } from "../data/model/Order";
 import { IdGenerator } from "../data/services/IdGenerator";
 
 
 
-export class PurchaseController {
-    async postPurchase(req: Request, res: Response): Promise<void> {
+export class OrdersController {
+    async createOrder(req: Request, res: Response): Promise<void> {
 
         try {
             const input: OrderInputDTO = {
@@ -15,17 +16,13 @@ export class PurchaseController {
                 list: req.body.list
             }
 
-            const ordersBusiness = new OrdersBusiness(
-                new OrdersDataBase,
-                new IdGenerator
-            )
-            await ordersBusiness.registerOrder(input)
-            res.status(200).send('Compra cadastrada com sucesso! Obrigado por usar a Shopper!')
+            const ordersBusiness = new OrdersBusiness()
+            const newOrder = await ordersBusiness.createOrder(input)
+            res.status(201).send(newOrder)
         }
 
         catch (error: any) {
-            res.status(error).send({ message: error.message })
+            res.status(400).send(error.message)
         }
-        finally { BaseDataBase.destroyConnection }
     }
 }

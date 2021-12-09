@@ -41,7 +41,7 @@ export class Migrations extends BaseDataBase {
 
             await Migrations.connection(PRODUCTS_LIST).insert(products)
 
-            console.log("Tabela criada!")
+            console.log("Tabelas criadas!")
         } catch (error: any) {
             console.log(error.message)
         } finally {
