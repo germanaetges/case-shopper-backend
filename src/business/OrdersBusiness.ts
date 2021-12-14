@@ -5,6 +5,12 @@ import { IdGenerator } from "../data/services/IdGenerator"
 
 export class OrdersBusiness {
 
+    constructor(
+        private idGenerator: IdGenerator,
+        private ordersDataBase: OrdersDataBase,
+
+    ) { }
+
     async createOrder(input: OrderInputDTO) {
 
         try {
@@ -13,12 +19,10 @@ export class OrdersBusiness {
                 throw new Error("Todos os campos são obrigatórios! Tente novamente =)")
             };
 
-            const idGenerator = new IdGenerator()
-            const id: string = idGenerator.generate()
+            const id = this.idGenerator.generate()
             const newOrder = { id, ...input }
-            const ordersDataBase = new OrdersDataBase()
 
-            await ordersDataBase.createOrder(newOrder)
+            await this.ordersDataBase.createOrder(newOrder)
 
             return newOrder
         }
