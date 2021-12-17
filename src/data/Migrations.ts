@@ -50,4 +50,4 @@ export class Migrations extends BaseDataBase {
     }
 }
 
-// Migrations.createTables()
+Migrations.createTables()
