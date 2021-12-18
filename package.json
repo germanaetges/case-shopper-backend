@@ -4,10 +4,11 @@
     "description": "Case Full Stack",
     "main": "index.js",
     "scripts": {
-        "dev": "clear && ts-node-dev ./src/index.ts",
-        "start": "tsc && node ./build/index.js",
+        "dev": "ts-node-dev ./src/index.ts",
+        "start": "tsc && node ./build/src/index.js",
         "migrations": "ts-node-dev ./src/data/Migrations.ts",
-        "test": "jest"
+        "test": "jest",
+        "build": "tsc"
     },
     "keywords": [],
     "author": "Germana Etges",
