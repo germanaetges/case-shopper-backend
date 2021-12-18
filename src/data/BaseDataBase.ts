@@ -15,5 +15,4 @@ export default class BaseDataBase {
             multipleStatements: true
         }
     })
-    static destroyConnection: any
 }
