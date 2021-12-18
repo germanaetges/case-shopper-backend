@@ -6,7 +6,7 @@ export class ProductsController {
     async getProducts(req: Request, res: Response) {
         try {
             const getProductsBusiness = new ProductsBusiness()
-            
+
             const result = await getProductsBusiness.getProducts()
 
             res.status(201).send({ result })
@@ -16,6 +16,4 @@ export class ProductsController {
             res.status(500).send(error)
         }
     }
-
-
 }

@@ -1,11 +1,9 @@
 import BaseDataBase from "./BaseDataBase"
 import products from "./products.json"
 
-
-export const PRODUCTS_LIST = "products_shopper";
+export const PRODUCTS_LIST = "products_shopper"
 export const ORDERS_LIST = "orders_shopper"
 export const ORDERS_PRODUCTS = "orders_products_shopper"
-
 
 export class Migrations extends BaseDataBase {
 

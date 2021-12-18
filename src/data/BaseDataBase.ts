@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 import knex from "knex"
 
-dotenv.config();
+dotenv.config()
 
 export default class BaseDataBase {
     protected static connection = knex({
@@ -14,6 +14,6 @@ export default class BaseDataBase {
             port: 3306,
             multipleStatements: true
         }
-    });
-    static destroyConnection: any;
-};
+    })
+    static destroyConnection: any
+}

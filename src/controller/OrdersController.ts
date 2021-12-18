@@ -1,13 +1,11 @@
-import { Request, Response } from "express";
-import { OrdersBusiness } from "../business/OrdersBusiness";
-import BaseDataBase from "../data/BaseDataBase";
-import { OrderInputDTO } from "../data/model/Order";
-import { OrdersDataBase } from "../data/OrdersDataBase";
-import { IdGenerator } from "../data/services/IdGenerator";
+import { Request, Response } from "express"
+import { OrdersBusiness } from "../business/OrdersBusiness"
+import { OrderInputDTO } from "../data/model/Order"
+import { OrdersDataBase } from "../data/OrdersDataBase"
+import { IdGenerator } from "../data/services/IdGenerator"
 
 const idGenerator = new IdGenerator()
 const ordersDataBase = new OrdersDataBase()
-
 
 export class OrdersController {
     async createOrder(req: Request, res: Response): Promise<void> {

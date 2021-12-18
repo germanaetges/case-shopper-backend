@@ -17,7 +17,7 @@ export class OrdersBusiness {
             if (!input.clientName || !input.dueDate || !input.list) {
 
                 throw new Error("Todos os campos são obrigatórios! Tente novamente =)")
-            };
+            }
 
             const id = this.idGenerator.generate()
             const newOrder = { id, ...input }
@@ -31,13 +31,5 @@ export class OrdersBusiness {
             throw new Error(error.message)
         }
     }
-
-
-
-
-
-
-
-
 
 }

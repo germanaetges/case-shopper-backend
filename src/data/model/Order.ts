@@ -3,7 +3,6 @@ export type Items = {
     productQuantity: number
 }
 
-
 export type Order = {
     id: string,
     clientName: string,
@@ -16,4 +15,3 @@ export type OrderInputDTO = {
     dueDate: Date,
     list: Items[]
 }
-

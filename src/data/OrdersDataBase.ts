@@ -1,8 +1,6 @@
-import { OrdersController } from "../controller/OrdersController";
-import BaseDataBase from "./BaseDataBase";
-import { ORDERS_LIST, ORDERS_PRODUCTS } from "./Migrations";
-import { Order } from "./model/Order";
-
+import BaseDataBase from "./BaseDataBase"
+import { ORDERS_LIST, ORDERS_PRODUCTS } from "./Migrations"
+import { Order } from "./model/Order"
 
 export class OrdersDataBase extends BaseDataBase {
 

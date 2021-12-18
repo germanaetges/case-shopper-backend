@@ -1,8 +1,7 @@
-import { ProductsDataBase } from "../data/ProductsDataBase";
+import { ProductsDataBase } from "../data/ProductsDataBase"
 
 
 export class ProductsBusiness {
-
 
     async getProducts(): Promise<any> {
         const getProductsDataBase = new ProductsDataBase()
