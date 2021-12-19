@@ -48,4 +48,6 @@ export class Migrations extends BaseDataBase {
     }
 }
 
+//////////// DESCOMENTAR LINHA ABAIXO PARA RODAR NPM RUN MIGRATIONS /////////////////
+
 // Migrations.createTables()

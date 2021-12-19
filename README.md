@@ -1,6 +1,9 @@
 # E-COMMERCE SHOPPER 
 :shopping_cart: :shopping_cart: :shopping_cart:
 
+## Link do deploy no Heroku
+[Link API] (https://shopper-backend-germana.herokuapp.com/)
+
 <h6> Projeto de Back End - Case para seleção da Shopper </h6>
 
 - Este é um projeto básico de back end de e-commerce, com funções de exibir produtos e criar pedidos.
@@ -16,7 +19,7 @@
    DB_PASSWORD = 
    DB_SCHEMA =  
    ```
-* Executar `npm run migrations` para adicionar as tabelas ao banco de dados (em caso de sucesso, o servidor já estará pronto para receber requisições)
+* Descomentar a linha 53 do arquivo `Migrations.ts` e então executar `npm run migrations` para adicionar as tabelas ao banco de dados (em caso de sucesso, o servidor já estará pronto para receber requisições)
 
 * Executar `npm run start` para rodar o servidor.
 
