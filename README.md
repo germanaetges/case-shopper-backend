@@ -2,7 +2,7 @@
 :shopping_cart: :shopping_cart: :shopping_cart:
 
 ## Link do deploy no Heroku
-[Link API] (https://shopper-backend-germana.herokuapp.com/)
+[Link da API](https://shopper-backend-germana.herokuapp.com/)
 
 <h6> Projeto de Back End - Case para seleção da Shopper </h6>
 
@@ -40,7 +40,7 @@
             },
         ]
     }
-    ```
+ ```
     
 
 
