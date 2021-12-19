@@ -1,5 +1,5 @@
-# E-COMMERCE SHOPPER 
-:shopping_cart: :shopping_cart: :shopping_cart:
+# E-COMMERCE SHOPPER :shopping_cart: :shopping_cart: :shopping_cart:
+
 
 ## Link do deploy no Heroku
 [Link da API](https://shopper-backend-germana.herokuapp.com/)
